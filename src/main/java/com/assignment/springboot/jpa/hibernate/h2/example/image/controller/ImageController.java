@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.assignment.springboot.jpa.hibernate.h2.example.image.entities.Image;
+import com.assignment.springboot.jpa.hibernate.h2.example.image.exception.ImageNotFoundException;
 import com.assignment.springboot.jpa.hibernate.h2.example.image.service.ImageService;
 import com.mashape.unirest.http.exceptions.UnirestException;
 
@@ -33,10 +34,10 @@ public class ImageController {
     
     @PostMapping
     @RequestMapping("/uploadImage")
-    public ResponseEntity<Image> uploadImage(@RequestParam("file") MultipartFile file) throws SQLException {
+    public ResponseEntity<Image> uploadImage(@RequestParam("file") MultipartFile file, @RequestParam("userId") Long id) throws SQLException {
         try {
             // call the uploadImage method to upload the file to Imgur and save the image to the database
-            Image image = imageService.uploadImage(file,1001l);
+            Image image = imageService.uploadImage(file,id);
 
             // return a response entity with the saved Image object and a HTTP status of 201 (created)
             return new ResponseEntity<>(image, HttpStatus.CREATED);
@@ -48,12 +49,12 @@ public class ImageController {
     }
 
     @RequestMapping("/getImageByImageId/{id}")
-    public ResponseEntity<Image> getImageByImageId(@PathVariable Long id) {
+    public ResponseEntity<Image> getImageByImageId(@PathVariable Long id) throws ImageNotFoundException {
         Optional<Image> image = imageService.getImageByImageId(id);
         if (image.isPresent()) {
             return ResponseEntity.ok(image.get());
         } else {
-            return ResponseEntity.notFound().build();
+            throw new ImageNotFoundException();
         }
     }
 
@@ -64,9 +65,9 @@ public class ImageController {
     }
 
     
-    @RequestMapping("/deleteImagesByUserId")
-    public void deleteImagesByUserId() throws UnirestException {
-         imageService.deleteImagesByUserId(1001l);
+    @RequestMapping("/deleteImagesByUserId{id}")
+    public void deleteImagesByUserId(@PathVariable Long id) throws UnirestException {
+         imageService.deleteImagesByUserId(id);
     }
 
     

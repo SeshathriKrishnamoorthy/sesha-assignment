@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.springboot.jpa.hibernate.h2.example.user.entities.User;
+import com.assignment.springboot.jpa.hibernate.h2.example.user.exception.UserNotFoundException;
 import com.assignment.springboot.jpa.hibernate.h2.example.user.service.UserService;
 
 @RestController
@@ -33,22 +34,22 @@ public class UserController {
     }
 
 @GetMapping("getUserById/{id}")
-public ResponseEntity<User> getUserById(@PathVariable Long id) {
+public ResponseEntity<User> getUserById(@PathVariable Long id)  throws UserNotFoundException {
     Optional<User> user = userService.getUserById(id);
     if (user.isPresent()) {
         return ResponseEntity.ok(user.get());
     } else {
-        return ResponseEntity.notFound().build();
+        throw new UserNotFoundException();
     }
 }
 
 @GetMapping("getUserByName/{name}")
-public ResponseEntity<User> getUserByName(@PathVariable String name) {
+public ResponseEntity<User> getUserByName(@PathVariable String name)  throws UserNotFoundException {
     Optional<User> user = userService.getUserByName(name);
     if (user.isPresent()) {
         return ResponseEntity.ok(user.get());
     } else {
-        return ResponseEntity.notFound().build();
+        throw new UserNotFoundException();
     }
 }
 
