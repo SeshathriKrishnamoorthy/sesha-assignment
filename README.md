@@ -45,14 +45,25 @@ The image is uploaded using imgur and the link for image will available while re
 
 To read image details using image id:
 
+https://sesha-assignment.onrender.com/images/getImageByImageId/{imageid}
+
+Example :
 https://sesha-assignment.onrender.com/images/getImageByImageId/1
 
 ********************************************
 
 To read image details using user id: 
 
+https://sesha-assignment.onrender.com/images/getImageByUserId/{userid}
+
+Example :
 https://sesha-assignment.onrender.com/images/getImageByUserId/1
 
 ********************************************
 
+To delete images by user id :
 
+https://sesha-assignment.onrender.com/images/deleteImagesByUserId/{userid}
+
+Example :
+https://sesha-assignment.onrender.com/images/deleteImagesByUserId/1
