@@ -5,10 +5,11 @@ FROM openjdk:17
 WORKDIR /app
 
 # Copy the jar file into our app
-COPY ./target/sesha-assignment-0.0.1.jar /app
+COPY ./target/sesha-assignment-0.0.1.jar demo.jar
 
 # Exposing port 8080
 EXPOSE 8080
 
 # Starting the application
-CMD ["java", "-jar", "sesha-assignment-0.0.1.jar"]
+CMD ["java", "-jar", "demo.jar"]
+
