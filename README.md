@@ -24,6 +24,17 @@ with body :
 
 ********************************************
 
+To login:
+
+https://sesha-assignment.onrender.com/users/login
+
+with params :
+
+username : jack
+password : mysecretpassword
+
+********************************************
+
 To read userdetails by name : 
 https://sesha-assignment.onrender.com/users/getUserByName/John
 
