@@ -54,10 +54,10 @@ https://sesha-assignment.onrender.com/images/getImageByImageId/1
 
 To read image details using user id: 
 
-https://sesha-assignment.onrender.com/images/getImageByUserId/{userid}
+https://sesha-assignment.onrender.com/images/getImagesByUserId/{userid}
 
 Example :
-https://sesha-assignment.onrender.com/images/getImageByUserId/1
+https://sesha-assignment.onrender.com/images/getImagesByUserId/1
 
 ********************************************
 
