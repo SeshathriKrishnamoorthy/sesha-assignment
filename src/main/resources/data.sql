@@ -1,2 +1,2 @@
 insert into users
-values(1001,'John', 'JohnUName', 'password');
+values(1001,'John', 'password','JohnUName' );

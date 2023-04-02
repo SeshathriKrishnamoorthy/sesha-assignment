@@ -10,4 +10,6 @@ import com.assignment.springboot.jpa.hibernate.h2.example.user.entities.User;
 public interface UserRepository extends JpaRepository<User, Long> {
     
     Optional<User> findByName(String name);
+
+    Optional<User> findByUsernameAndPassword(String username, String password);
 }

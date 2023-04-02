@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.assignment.springboot.jpa.hibernate.h2.example.user.entities.User;
@@ -31,6 +32,17 @@ public class UserController {
     public ResponseEntity<String> registerUser(@Validated @RequestBody User user) {
         userService.registerUser(user);
         return ResponseEntity.ok("User registered successfully");
+    }
+
+    @GetMapping()
+    @RequestMapping("/login")
+    public ResponseEntity<String> login(@RequestParam("username") String username, @RequestParam("password") String password) {
+        Optional<User> user =  userService.authenticate(username, password);
+        if (user.isPresent()) {
+            return ResponseEntity.ok("User logged in Successfully");
+        } else {
+            return ResponseEntity.ok("Invalid credentials");
+        }
     }
 
 @GetMapping("getUserById/{id}")
