@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.springboot.jpa.hibernate.h2.example.MyAssignmentApplicationTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 53.337 s - in com.springboot.jpa.hibernate.h2.example.MyAssignmentApplicationTest

@@ -1,0 +1,9 @@
+com\assignment\springboot\jpa\hibernate\h2\example\user\repository\UserRepository.class
+com\assignment\springboot\jpa\hibernate\h2\example\user\entities\User.class
+com\assignment\springboot\jpa\hibernate\h2\example\image\controller\ImageController.class
+com\assignment\springboot\jpa\hibernate\h2\example\MyAssignmentApplication.class
+com\assignment\springboot\jpa\hibernate\h2\example\user\controller\UserController.class
+com\assignment\springboot\jpa\hibernate\h2\example\image\service\ImageService.class
+com\assignment\springboot\jpa\hibernate\h2\example\image\entities\Image.class
+com\assignment\springboot\jpa\hibernate\h2\example\image\repository\ImageRepository.class
+com\assignment\springboot\jpa\hibernate\h2\example\user\service\UserService.class
